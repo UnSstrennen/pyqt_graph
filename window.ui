@@ -30,6 +30,7 @@
     <addaction name="action_brush"/>
     <addaction name="action_line"/>
     <addaction name="action_circle"/>
+    <addaction name="action_color"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -47,6 +48,7 @@
    <addaction name="action_brush"/>
    <addaction name="action_line"/>
    <addaction name="action_circle"/>
+   <addaction name="action_color"/>
   </widget>
   <action name="action_brush">
    <property name="text">
@@ -61,6 +63,11 @@
   <action name="action_circle">
    <property name="text">
     <string>Окружность</string>
+   </property>
+  </action>
+  <action name="action_color">
+   <property name="text">
+    <string>Выбор цвета</string>
    </property>
   </action>
  </widget>
