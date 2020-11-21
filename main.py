@@ -6,21 +6,21 @@ from PyQt5 import uic
 from PyQt5.QtGui import QBrush, QColor, QPainter
 from PyQt5.QtWidgets import QMainWindow, QApplication, QWidget, QColorDialog
 
-conn = sqlite3.connect("data.db")
+conn = sqlite3.connect("data.db") # подключаемся к базе
 cursor = conn.cursor()
 cursor.execute("""CREATE TABLE IF NOT EXISTS action
                       (_id INTEGER PRIMARY KEY AUTOINCREMENT, color_RGB TEXT, action_type TEXT, da_te TEXT)
-                   """)
+                   """) # создаю таблицу
 
 
 class BrushPoint:  # кисть
     def __init__(self, x, y, color):
         self.x = x
         self.y = y
-        self.color = color
+        self.color = color # цвет
 
     def draw(self, painter):
-        r = self.color[0]
+        r = self.color[0] # составляющие цвета
         g = self.color[1]
         b = self.color[2]
         painter.setBrush(QBrush(QColor(r, g, b)))
@@ -69,7 +69,7 @@ class Canvas(QWidget):  # панели для рисования
 
         self.objects = []  # объекты, которые уже нарисованы
         self.instrument = 'brush'  # инструмент, который используется, по умолчания кисть
-        self.color = (0, 0, 0, 255)
+        self.color = (0, 0, 0, 255) # цвет рисования
 
     def paintEvent(self, event):
         painter = QPainter()
@@ -88,10 +88,10 @@ class Canvas(QWidget):  # панели для рисования
         elif self.instrument == 'circle':
             self.objects.append(Circle(event.x(), event.y(), event.x(), event.y(), self.color))
             self.update()
-        now = datetime.datetime.now()
+        now = datetime.datetime.now() # текущее время
         cursor.execute("""INSERT INTO action (color_RGB, action_type, da_te)
                                       VALUES (?, ?, ?)""", (str(self.color[:3]), self.instrument, now.strftime("%d-%m-%Y %H:%M:%S"))
-                       )
+                       ) # создаю новую запись в таблице
         conn.commit()
 
     def mouseMoveEvent(self, event):
@@ -116,7 +116,7 @@ class Canvas(QWidget):  # панели для рисования
     def setCircle(self):
         self.instrument = 'circle'
 
-    def showDialog(self):
+    def showDialog(self): # выбор цвета
         col = QColorDialog.getColor()
         if col.isValid():
             self.color = col.getRgb()
