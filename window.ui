@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>578</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,16 +23,30 @@
      <height>21</height>
     </rect>
    </property>
-   <widget class="QMenu" name="menu">
+   <widget class="QMenu" name="tools">
     <property name="title">
      <string>Инструменты</string>
     </property>
     <addaction name="action_brush"/>
+    <addaction name="action_thick"/>
+    <addaction name="action_color"/>
+    <addaction name="action_eraser"/>
+    <addaction name="action_color_fill"/>
+    <addaction name="action_fill"/>
+    <addaction name="separator"/>
+    <addaction name="action_erase_ever"/>
+   </widget>
+   <widget class="QMenu" name="figures">
+    <property name="title">
+     <string>Фигуры</string>
+    </property>
     <addaction name="action_line"/>
     <addaction name="action_circle"/>
-    <addaction name="action_color"/>
+    <addaction name="action_rect"/>
+    <addaction name="action_square"/>
    </widget>
-   <addaction name="menu"/>
+   <addaction name="tools"/>
+   <addaction name="figures"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -46,13 +60,23 @@
     <bool>false</bool>
    </attribute>
    <addaction name="action_brush"/>
-   <addaction name="action_line"/>
-   <addaction name="action_circle"/>
+   <addaction name="action_thick"/>
    <addaction name="action_color"/>
+   <addaction name="action_eraser"/>
+   <addaction name="action_color_fill"/>
+   <addaction name="action_fill"/>
+   <addaction name="separator"/>
+   <addaction name="separator"/>
+   <addaction name="action_erase_ever"/>
   </widget>
   <action name="action_brush">
    <property name="text">
     <string>Кисть</string>
+   </property>
+  </action>
+  <action name="action_color">
+   <property name="text">
+    <string>Выбор цвета</string>
    </property>
   </action>
   <action name="action_line">
@@ -65,9 +89,54 @@
     <string>Окружность</string>
    </property>
   </action>
-  <action name="action_color">
+  <action name="action_rect">
    <property name="text">
-    <string>Выбор цвета</string>
+    <string>Прямоугольник</string>
+   </property>
+  </action>
+  <action name="action_star">
+   <property name="text">
+    <string>Звезда</string>
+   </property>
+  </action>
+  <action name="action_square">
+   <property name="text">
+    <string>Квадрат</string>
+   </property>
+  </action>
+  <action name="action_eraser">
+   <property name="text">
+    <string>Ластик</string>
+   </property>
+  </action>
+  <action name="action_erase_ever">
+   <property name="text">
+    <string>Стереть все</string>
+   </property>
+  </action>
+  <action name="action_save">
+   <property name="text">
+    <string>Сохранить</string>
+   </property>
+  </action>
+  <action name="action_open">
+   <property name="text">
+    <string>Открыть</string>
+   </property>
+  </action>
+  <action name="action_thick">
+   <property name="text">
+    <string>Толщина</string>
+   </property>
+  </action>
+  <action name="action_fill">
+   <property name="text">
+    <string>Заливка</string>
+   </property>
+  </action>
+  <action name="action_color_fill">
+   <property name="text">
+    <string>Цвет заливки</string>
    </property>
   </action>
  </widget>
